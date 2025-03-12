@@ -4,11 +4,14 @@ appcompatVersion = "1.5.1"
 constraintlayoutVersion = "2.1.4"
 firebaseAuthVersion = "22.3.0"
 firebaseFirestore = "25.1.2"
+googleMaterial = "1.9.0"
 gson = "2.10.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 appcompat = "1.7.0"
+lombok = "1.18.36"
+lombokVersion = "1.18.30"
 material = "1.12.0"
 activity = "1.10.0"
 constraintlayout = "2.2.0"
@@ -19,10 +22,15 @@ materialVersion = "1.5.0"
 credentials = "1.5.0-rc01"
 credentialsPlayServicesAuth = "1.3.0"
 googleid = "1.1.1"
+picasso = "2.8"
+retrofit = "2.9.0"
+roomCommon = "2.6.1"
+runner = "1.6.2"
 
 [libraries]
 appcompat-v151 = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }
 constraintlayout-v214 = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayoutVersion" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 firebase-auth-v2230 = { module = "com.google.firebase:firebase-auth", version.ref = "firebaseAuthVersion" }
 firebase-firestore = { module = "com.google.firebase:firebase-firestore", version.ref = "firebaseFirestore" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
@@ -30,6 +38,8 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+lombok-v11830 = { module = "org.projectlombok:lombok", version.ref = "lombokVersion" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
@@ -39,6 +49,13 @@ material-v150 = { module = "com.google.android.material:material", version.ref =
 credentials = { group = "androidx.credentials", name = "credentials", version.ref = "credentials" }
 credentials-play-services-auth = { group = "androidx.credentials", name = "credentials-play-services-auth", version.ref = "credentialsPlayServicesAuth" }
 googleid = { group = "com.google.android.libraries.identity.googleid", name = "googleid", version.ref = "googleid" }
+material-v190 = { module = "com.google.android.material:material", version.ref = "googleMaterial" }
+picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+room-common = { module = "androidx.room:room-common", version.ref = "roomCommon" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCommon" }
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomCommon" }
+runner = { module = "androidx.test:runner", version.ref = "runner" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
