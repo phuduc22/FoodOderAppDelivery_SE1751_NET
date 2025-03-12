@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FoodOrderApp</string>
+    <string name="fullname">Full Name</string>
+    <string name="username">User Name</string>
+    <!-- Thêm hai chuỗi này -->
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
 </resources>
