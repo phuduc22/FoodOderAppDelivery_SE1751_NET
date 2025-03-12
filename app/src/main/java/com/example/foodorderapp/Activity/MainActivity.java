@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Home Selected", Toast.LENGTH_SHORT).show();
                 } else if (id == R.id.nav_profile) {
                     Toast.makeText(MainActivity.this, "Profile Selected", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, UserProfileActivity.class));
                 } else if (id == R.id.nav_settings) {
                     Toast.makeText(MainActivity.this, "Settings Selected", Toast.LENGTH_SHORT).show();
                 }else if (id == R.id.nav_logout) {

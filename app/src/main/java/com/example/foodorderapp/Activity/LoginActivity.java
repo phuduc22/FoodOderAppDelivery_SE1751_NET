@@ -34,6 +34,7 @@ public class LoginActivity extends BaseActivity {
                 if (!email.isEmpty() && !pass.isEmpty()) {
                     User user = userRoomDatabase.userDao().getUserByEmail(email);
                     if (user != null && user.getPassword().equals(pass)) {
+
                         SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("username", email);
