@@ -35,6 +35,7 @@ android {
 
 dependencies {
 
+
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity
@@ -52,4 +53,17 @@ dependencies {
     implementation libs.gson
     implementation libs.firebase.auth.v2230
     implementation libs.firebase.firestore
+    implementation libs.picasso
+    implementation libs.room.common
+    implementation libs.room.runtime
+    implementation libs.runner
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok.v11830
+    implementation libs.retrofit
+    implementation libs.converter.gson
+    // If this project only uses Java source, use the Java annotationProcessor
+    // No additional plugins are necessary
+    annotationProcessor libs.room.compiler
+    implementation libs.material.v190
 }

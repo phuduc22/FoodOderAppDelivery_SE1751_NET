@@ -15,18 +15,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center_horizontal">
 
+            <!-- Logo -->
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
-                tools:srcCompat="@drawable/logo" />
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/logo" />
 
+            <!-- App Name -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal">
@@ -36,10 +40,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Food"
-                    android:layout_marginEnd="8dp"
                     android:textSize="45sp"
                     android:textColor="@color/blue_grey"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:layout_marginEnd="8dp"/>
 
                 <TextView
                     android:id="@+id/textView6"
@@ -50,62 +54,108 @@
                     android:textColor="@color/blue_grey" />
             </LinearLayout>
 
+            <!-- Full Name -->
+            <EditText
+                android:id="@+id/nameEdt"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:hint="Full Name"
+                android:textSize="16sp"
+                android:textAlignment="center"
+                android:textColorHint="@color/blue_grey"
+                android:background="@drawable/edittext_background"
+                android:inputType="text" />
+
+            <!-- Email -->
             <EditText
                 android:id="@+id/userEdt"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:ems="10"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginStart="32dp"
-
-                android:hint="Email address"
+                android:layout_marginTop="16dp"
+                android:hint="Email Address"
                 android:textSize="16sp"
                 android:textAlignment="center"
                 android:textColorHint="@color/blue_grey"
                 android:background="@drawable/edittext_background"
-                android:inputType="text"
-                />
+                android:inputType="textEmailAddress" />
+
+            <!-- Phone Number -->
+            <EditText
+                android:id="@+id/phoneEdt"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:hint="Phone Number"
+                android:textSize="16sp"
+                android:textAlignment="center"
+                android:textColorHint="@color/blue_grey"
+                android:background="@drawable/edittext_background"
+                android:inputType="phone" />
+
+            <!-- Avatar URL -->
+            <EditText
+                android:id="@+id/avatarEdt"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:hint="Avatar URL"
+                android:textSize="16sp"
+                android:textAlignment="center"
+                android:textColorHint="@color/blue_grey"
+                android:background="@drawable/edittext_background"
+                android:inputType="textUri" />
+
+            <!-- Password -->
             <EditText
                 android:id="@+id/passEdt"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:ems="10"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginStart="32dp"
-
                 android:hint="Password"
                 android:textSize="16sp"
-
                 android:textAlignment="center"
                 android:textColorHint="@color/blue_grey"
                 android:background="@drawable/edittext_background"
-                android:inputType="textPassword"
-                />
+                android:inputType="textPassword" />
 
+            <!-- Confirm Password -->
+            <EditText
+                android:id="@+id/confirmPassEdt"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:hint="Confirm Password"
+                android:textSize="16sp"
+                android:textAlignment="center"
+                android:textColorHint="@color/blue_grey"
+                android:background="@drawable/edittext_background"
+                android:inputType="textPassword" />
+
+            <!-- Sign Up Button -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/signupBtn"
-                style="@android:style/Widget.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="32dp"
+                android:layout_marginTop="24dp"
                 android:background="@drawable/red_button_background"
-                android:text="SignUp"
+                android:text="Sign Up"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
+            <!-- Login Redirect -->
             <TextView
-                android:id="@+id/forgotPassBtn"
+                android:id="@+id/loginRedirect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Are you a member? Login"
+                android:layout_marginTop="16dp"
+                android:text="Already have an account? Login"
                 android:textAlignment="center"
-                android:textSize="16sp" />
-
-
+                android:textSize="16sp"
+                android:textColor="@color/blue_grey"
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
