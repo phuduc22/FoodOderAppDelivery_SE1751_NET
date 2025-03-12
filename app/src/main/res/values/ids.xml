@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="nav_logout" type="id" />
+    <item name="userAvatar" type="id" />
+    <item name="userName" type="id" />
+    <item name="userEmail" type="id" />
+    <item name="userPhone" type="id" />
+    <item name="userRole" type="id" />
+    <item name="userStatus" type="id" />
+    <item name="userCreatedAt" type="id" />
+    <item name="userUpdatedAt" type="id" />
+    <item name="btnEditProfile" type="id" />
+    <item name="btnLogout" type="id" />
 </resources>
