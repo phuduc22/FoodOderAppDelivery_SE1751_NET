@@ -27,10 +27,12 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle toggle;
     private TextView navHeaderTitle;
     private View headerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         // Load username from SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
         String username = sharedPreferences.getString("username", "Guest"); // Mặc định là "Guest"
@@ -43,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         navHeaderTitle = headerView.findViewById(R.id.nav_header_title);
         navHeaderTitle.setText(username);
 
-
         // Ánh xạ
         drawerLayout = findViewById(R.id.drawerLayout);
         logoutBtn = findViewById(R.id.logoutBtn);
@@ -51,11 +52,13 @@ public class MainActivity extends AppCompatActivity {
         // Thiết lập Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         // Thêm nút Toggle để mở Drawer
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
         // Xử lý khi nhấn vào các mục trong NavigationView
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -69,7 +72,19 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, UserProfileActivity.class));
                 } else if (id == R.id.nav_settings) {
                     Toast.makeText(MainActivity.this, "Settings Selected", Toast.LENGTH_SHORT).show();
-                }else if (id == R.id.nav_logout) {
+                } else if (id == R.id.nav_dish_management) { // Thêm mục mới
+                    Toast.makeText(MainActivity.this, "Dish Management Selected", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, DishManagementActivity.class));
+                } else if (id == R.id.nav_menu_management) { // Thêm mục mới
+                    Toast.makeText(MainActivity.this, "Menu Management Selected", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, MenuManagementActivity.class));
+                } else if (id == R.id.nav_new_orders) { // Thêm mục mới
+                    Toast.makeText(MainActivity.this, "New Orders Selected", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, NewOrdersActivity.class));
+                } else if (id == R.id.nav_revenue_stats) { // Thêm mục mới
+                    Toast.makeText(MainActivity.this, "Revenue Statistics Selected", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, RevenueStatisticsActivity.class));
+                } else if (id == R.id.nav_logout) {
                     Toast.makeText(MainActivity.this, "Logging Out", Toast.LENGTH_SHORT).show();
                     logoutUser();
                 }
@@ -78,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
 
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override

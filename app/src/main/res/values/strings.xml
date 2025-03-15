@@ -5,4 +5,16 @@
     <!-- Thêm hai chuỗi này -->
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="order_id_label">ID: %1$d</string>
+    <string name="customer_name_label">Khách hàng: %1$s</string>
+    <string name="total_price_label">Tổng tiền: %1$,.0f VNĐ</string>
+    <string name="order_date_label">Ngày đặt: %1$s</string>
+    <string name="status_label">Trạng thái: %1$s</string>
+    <string name="customer_phone_label">Số điện thoại: %1$s</string>
+    <string name="customer_address_label">Địa chỉ: %1$s</string>
+    <string name="product_name_label">Tên sản phẩm: %1$s</string>
+    <string name="quantity_label">Số lượng: %1$d</string>
+    <string name="price_label">Giá: %1$,.0f VNĐ</string>
+    <string name="no_order_found">Không tìm thấy đơn hàng nào</string>
+    <string name="no_order_item_found">Không tìm thấy sản phẩm nào trong đơn hàng</string>
 </resources>

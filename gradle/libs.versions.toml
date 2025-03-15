@@ -26,6 +26,8 @@ picasso = "2.8"
 retrofit = "2.9.0"
 roomCommon = "2.6.1"
 runner = "1.6.2"
+playServicesAnalyticsImpl = "18.2.0"
+databindingAdapters = "8.9.0"
 
 [libraries]
 appcompat-v151 = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }
@@ -56,6 +58,8 @@ room-common = { module = "androidx.room:room-common", version.ref = "roomCommon"
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCommon" }
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomCommon" }
 runner = { module = "androidx.test:runner", version.ref = "runner" }
+play-services-analytics-impl = { group = "com.google.android.gms", name = "play-services-analytics-impl", version.ref = "playServicesAnalyticsImpl" }
+databinding-adapters = { group = "androidx.databinding", name = "databinding-adapters", version.ref = "databindingAdapters" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
