@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/orderIdTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mã đơn hàng: ORDER_001"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/customerNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Khách hàng: Nguyễn Văn A" />
+
+        <TextView
+            android:id="@+id/totalAmountTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tổng tiền: 0 VNĐ" />
+
+        <TextView
+            android:id="@+id/statusTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trạng thái: Mới" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Danh sách món ăn:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/orderItemsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/confirmOrderButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Xác nhận đơn hàng"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/preparingOrderButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đang chuẩn bị"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/completeOrderButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hoàn thành"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/deliverOrderButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đã giao"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/cancelOrderButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hủy đơn hàng"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+</ScrollView>

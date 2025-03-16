@@ -10,7 +10,6 @@ import androidx.room.Ignore;
 @Data
 public class User {
     @PrimaryKey(autoGenerate = true)
-    @NonNull
     @ColumnInfo(name = "id")
     private int id;
 
@@ -77,7 +76,7 @@ public class User {
         return id;
     }
 
-    public void setId(@NonNull int id) {
+    public void setId(int id) {
         this.id = id;
     }
 

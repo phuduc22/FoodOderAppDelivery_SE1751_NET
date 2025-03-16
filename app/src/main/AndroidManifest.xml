@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
         tools:targetApi="31">
+
         <activity
             android:name=".Activity.UserProfileActivity"
             android:exported="false" />
@@ -38,10 +39,31 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".Activity.DishManagementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.AddEditDishActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.MenuManagementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.AddEditMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.NewOrdersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.OrderDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.RevenueStatisticsActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
