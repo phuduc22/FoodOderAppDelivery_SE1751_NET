@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -45,18 +46,31 @@ public class DishDisplayAdapter extends RecyclerView.Adapter<DishDisplayAdapter.
                 .into(holder.imageView);
         holder.FoodName.setText(food.getName());
         holder.FoodPrice.setText("Price: "+food.getPrice()+" dong ");
-        // Xử lý sự kiện click vào CardView
+//         Xử lý sự kiện click vào CardView
 
-//        holder.imageView.setOnClickListener(v -> {
-//            Intent intent = new Intent(context, FoodDetailActivity.class);
-//
-//            // Truyền dữ liệu qua Intent
-//            intent.putExtra("DishId", food.getDishId());
-//            context.startActivity(intent);
-//        });
+        holder.imageView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, DishDetailOrderActivity.class);
+
+            // Truyền dữ liệu qua Intent
+            intent.putExtra("DishId", food.getDishId());
+            context.startActivity(intent);
+        });
+        holder.btnBuyNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                            Intent intent = new Intent(context, DishDetailOrderActivity.class);
+
+            // Truyền dữ liệu qua Intent
+            intent.putExtra("DishId", food.getDishId());
+            context.startActivity(intent);
+            }
+        });
 
     }
-
+    public void updateData(List<Dish> newFoodList) {
+        this.listFood = newFoodList;
+        notifyDataSetChanged();
+    }
     @Override
     public int getItemCount() {
         return listFood.size();
@@ -66,11 +80,13 @@ public class DishDisplayAdapter extends RecyclerView.Adapter<DishDisplayAdapter.
 
         ImageView imageView;
         TextView FoodName,FoodPrice;
+        Button btnBuyNow;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView=itemView.findViewById(R.id.Food_Image);
             FoodName=itemView.findViewById(R.id.Food_Name);
             FoodPrice=itemView.findViewById(R.id.Food_Price);
+            btnBuyNow=itemView.findViewById(R.id.btnBuyNow);
 
         }
     }

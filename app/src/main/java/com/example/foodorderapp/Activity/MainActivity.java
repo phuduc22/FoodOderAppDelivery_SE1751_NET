@@ -1,5 +1,6 @@
 package com.example.foodorderapp.Activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,18 +16,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.foodorderapp.DAO.UserRoomDatabase;
+import com.example.foodorderapp.Entity.Dish;
 import com.example.foodorderapp.R;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
-    private Button logoutBtn;
+    private Button logoutBtn,btnBackList,btnNextList;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private ActionBarDrawerToggle toggle;
     private TextView navHeaderTitle;
     private View headerView;
+    private RecyclerView recyclerView;
+    private DishDisplayAdapter adapter;
+    private List<Dish> foodList;
+    private UserRoomDatabase database;
+    private static int currentPageList = 0 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         // Ánh xạ
         drawerLayout = findViewById(R.id.drawerLayout);
         logoutBtn = findViewById(R.id.logoutBtn);
+        btnBackList = findViewById(R.id.btnBackButton);
+        btnNextList = findViewById(R.id.btnNextButton);
 
         // Thiết lập Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -88,11 +103,62 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Logging Out", Toast.LENGTH_SHORT).show();
                     logoutUser();
                 }
-
                 drawerLayout.closeDrawer(GravityCompat.START);
+
                 return true;
             }
         });
+        database = UserRoomDatabase.getInstance(this);
+        List<Dish> foodListDatabase = database.dishDao().getAllDishes();
+        if (foodListDatabase.isEmpty()) { // Kiểm tra danh sách trống
+            List<Dish> defaultDishes = Arrays.asList(
+                    new Dish("Phở Bò", "Phở bò truyền thống Việt Nam", 60000,
+                            "phobovietnam", "Món chính", true),
+                    new Dish("Bánh Mì", "Bánh mì kẹp thịt thơm ngon", 30000,
+                            "banhmikepthit", "Ăn nhẹ", true),
+                    new Dish("Bún Chả", "Bún chả Hà Nội ngon tuyệt", 50000,
+                            "bunchahanoi", "Món chính", true),
+                    new Dish("Gỏi Cuốn", "Gỏi cuốn tôm thịt với nước chấm đặc biệt", 40000,
+                            "goicuontomthit", "Khai vị", true),
+                    new Dish("Chè Ba Màu", "Món chè truyền thống với đậu xanh, đậu đỏ và nước cốt dừa", 25000,
+                            "chebamau", "Tráng miệng", true)
+            );
+
+            for (Dish dish : defaultDishes) {
+                database.dishDao().insertDish(dish); // Chèn từng món vào database
+            }
+        }
+            btnBackList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (currentPageList > 0) {
+                        currentPageList--;
+                        updateFoodList(foodListDatabase);
+                    }
+                }
+            });
+
+            btnNextList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if ((currentPageList * 3) + 3 < foodListDatabase.size()) {
+                        currentPageList++;
+                        updateFoodList(foodListDatabase);
+                    }
+                }
+            });
+
+            // Ánh xạ RecyclerView
+            recyclerView = findViewById(R.id.recyclerView);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            int toIndex = Math.min(3, foodListDatabase.size());
+            foodList = foodListDatabase.subList(0, toIndex);
+
+            // Gán Adapter vào RecyclerView
+            adapter = new DishDisplayAdapter(this, foodList);
+            recyclerView.setAdapter(adapter);
+
+
 
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +166,15 @@ public class MainActivity extends AppCompatActivity {
                 logoutUser();
             }
         });
+    }
+    private void updateFoodList(List<Dish> foodListDatabase) {
+        if (foodListDatabase == null || foodListDatabase.isEmpty()) return;
+        int fromIndex = currentPageList * 3;
+        int toIndex = Math.min(fromIndex + 3, foodListDatabase.size());
+        List<Dish> pagedList = foodListDatabase.subList(fromIndex, toIndex);
+
+        adapter = new DishDisplayAdapter(this, pagedList);
+        recyclerView.setAdapter(adapter);
     }
 
     private void logoutUser() {
