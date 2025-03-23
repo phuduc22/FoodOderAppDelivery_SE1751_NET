@@ -1,6 +1,7 @@
 [versions]
 agp = "8.7.3"
 appcompatVersion = "1.5.1"
+compiler = "4.16.0"
 constraintlayoutVersion = "2.1.4"
 firebaseAuthVersion = "22.3.0"
 firebaseFirestore = "25.1.2"
@@ -31,10 +32,12 @@ databindingAdapters = "8.9.0"
 
 [libraries]
 appcompat-v151 = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }
+compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "compiler" }
 constraintlayout-v214 = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayoutVersion" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 firebase-auth-v2230 = { module = "com.google.firebase:firebase-auth", version.ref = "firebaseAuthVersion" }
 firebase-firestore = { module = "com.google.firebase:firebase-firestore", version.ref = "firebaseFirestore" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "compiler" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
