@@ -18,7 +18,7 @@ public class User {
     private String username;
 
     @NonNull
-    @ColumnInfo(name = "email", index = true) // Tạo index để truy vấn nhanh hơn
+    @ColumnInfo(name = "email", index = true)
     private String email;
 
     @NonNull
