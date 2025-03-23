@@ -40,8 +40,9 @@ public class LoginActivity extends BaseActivity {
                         editor.putString("username", email);
                         editor.apply();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
                     } else {
-                        Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(LoginActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();

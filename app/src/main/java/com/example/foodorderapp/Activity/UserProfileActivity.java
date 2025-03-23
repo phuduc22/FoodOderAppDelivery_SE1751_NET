@@ -23,7 +23,7 @@ public class UserProfileActivity extends AppCompatActivity {
     private Button btnEditProfile, btnLogout;
 
     private UserRoomDatabase userRoomDatabase;
-    private User currentUser; // Người dùng đang đăng nhập
+    private User currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -14,14 +14,14 @@ import com.example.foodorderapp.Entity.OrderItem;
 import com.example.foodorderapp.Entity.Revenue;
 import com.example.foodorderapp.Entity.User;
 
-@Database(entities = {User.class, Order.class, OrderItem.class, Dish.class, Menu.class, Revenue.class}, version = 1, exportSchema = false)
+@Database(entities = {User.class, Order.class, OrderItem.class, Dish.class, Menu.class, Revenue.class}, version = 2, exportSchema = false)
 @TypeConverters(Converters.class)
 public abstract class UserRoomDatabase extends RoomDatabase {
     public abstract UserDao userDao();
     public abstract DishDao dishDao();
     public abstract MenuDao menuDao();
     public abstract OrderDao orderDao();
-    public abstract OrderItemDao orderItemDao(); // Thêm OrderItemDao
+    public abstract OrderItemDao orderItemDao();
     public abstract RevenueDao revenueDao();
 
     private static UserRoomDatabase INSTANCE;
